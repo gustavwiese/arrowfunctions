@@ -1,13 +1,18 @@
 "use strict";
 
+let count = 0;
+
 window.addEventListener("load", start);
+
+document.querySelector("#btn").addEventListener("click", function clickButton() {
+  count++;
+  console.log("Clicks " + count);
+});
 
 function start() {
   console.log("JavaScript kører");
 
-  console.log(isGryffindor(liste[0]));
-  console.log(isNotGryffindor(liste[0]));
-  console.log(hasLastName(liste[0], "potter"));
+  console.log(houseFilter("gryffindor"));
 }
 
 function isGryffindor(student) {
@@ -21,3 +26,5 @@ function isNotGryffindor(student) {
 function hasLastName(student, lastName) {
   return student.lastName.toLowerCase().trim() == lastName;
 }
+
+const houseFilter = (house) => liste.filter((student) => student.house.toLowerCase() === house.toLowerCase());
